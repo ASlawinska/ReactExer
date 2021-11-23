@@ -1,6 +1,9 @@
-const PositiveMessage = () => <h3>Możesz obejrzeć ten film</h3>;
-const NegativeMessege = () => <h2>Nie możesz obejrzeć tego filmu! </h2>
+// Stworzenie jednego komponentu funkcyjnego do wyświetlania wiadomości
+const VallidationMessage = (props) => <p>{props.txt}</p> 
+// const PositiveMessage = () => <h3>Możesz obejrzeć ten film</h3>;
+// const NegativeMessege = () => <h2>Nie możesz obejrzeć tego filmu! </h2>
 
+// główny komponent klasowy
 class TicketShop extends React.Component {
   state = {
     isConfirmed: false,
@@ -22,9 +25,9 @@ class TicketShop extends React.Component {
   displayMessege = () => {
     if(this.state.isFormSubbmited){
       if(this.state.isConfirmed) {
-        return <PositiveMessage />
+        return <VallidationMessage txt="Możesz obejrzeć ten film" />
       } else {
-        return <NegativeMessege />
+        return <VallidationMessage txt="Nie możesz obejrzeć tego filmu!" />
       }
     } else {
       return null
