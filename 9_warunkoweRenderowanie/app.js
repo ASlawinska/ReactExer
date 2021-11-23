@@ -3,6 +3,17 @@ const VallidationMessage = (props) => <p>{props.txt}</p>
 // const PositiveMessage = () => <h3>Możesz obejrzeć ten film</h3>;
 // const NegativeMessege = () => <h2>Nie możesz obejrzeć tego filmu! </h2>
 
+//component funkcyjny, formularz
+const OrderForm = (props) => {
+  return (
+  <form onSubmit ={props.submit} action="">
+    <input type="checkbox" id="age" onChange={props.change} checked={props.checked} />
+    <label htmlFor="age">Mam co najmniej 16 lat</label>
+    <br />
+    <button type="submit">Kup bilet</button>
+  </form>
+  )
+} 
 // główny komponent klasowy
 class TicketShop extends React.Component {
   state = {
@@ -37,12 +48,11 @@ class TicketShop extends React.Component {
     return (
       <>
         <h1>Kup bilet na horror!</h1>
-        <form onSubmit ={this.handleFormSubmit} action="">
-          <input type="checkbox" id="age" onChange={this.handleCheckboxChange} checked={this.state.isConfirmed} />
-          <label htmlFor="age">Mam co najmniej 16 lat</label>
-          <br />
-          <button type="submit">Kup bilet</button>
-        </form>
+        <OrderForm 
+          change={this.handleCheckboxChange}
+          submit={this.handleFormSubmit}
+          checked={this.state.isConfirmed}
+        />
         {this.displayMessege()}
       </>
     )
