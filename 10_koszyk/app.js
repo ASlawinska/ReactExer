@@ -25,7 +25,9 @@ class App extends React.Component {
         return(
             <>
                 <button disabled={this.state.shoppingCard ? false : true} onClick={this.handleRemoveFromCard}>-</button>
-                <span>{this.state.shoppingCard}</span>
+                <span style={this.state.shoppingCard ===0 ? {
+                    opacity: 0.3
+                } : {} }>{this.state.shoppingCard}</span>
                 <button disabled={this.state.shoppingCard === this.state.avaliableProducts ? true : false} onClick={this.handleAddToCard}>+</button>
                 {this.state.shoppingCard > 0 && <button className="buyButton" onClick={this.handleBuy}>KUP</button>}
             </>
