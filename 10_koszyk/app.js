@@ -13,6 +13,13 @@ class App extends React.Component {
             shoppingCard: this.state.shoppingCard +1
         })
     }
+    handleBuy = () => {
+        this.setState({
+            avaliableProducts: this.state.avaliableProducts - this.state.shoppingCard,
+            shoppingCard: 0,
+        })
+
+    }
 
     render() {
         return(
@@ -20,6 +27,7 @@ class App extends React.Component {
                 <button disabled={this.state.shoppingCard ? false : true} onClick={this.handleRemoveFromCard}>-</button>
                 <span>{this.state.shoppingCard}</span>
                 <button disabled={this.state.shoppingCard === this.state.avaliableProducts ? true : false} onClick={this.handleAddToCard}>+</button>
+                {this.state.shoppingCard > 0 && <button className="buyButton" onClick={this.handleBuy}>KUP</button>}
             </>
         )
     }
